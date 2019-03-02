@@ -5,6 +5,11 @@ var app = express()
 // add an http server to serve files to the Edge browser
 // due to certificate issues it rejects the https files if they are not
 // directly called in a typed URL
+app.use(function(req,res,next){
+	res.header("Access-Control-Allow-Origin","*");
+	res.header("Access-Control-Allow-Headers","X-Requested-With");
+	next();
+});
 var http = require('http');
 var httpServer = http.createServer(app);
 httpServer.listen(4480);
