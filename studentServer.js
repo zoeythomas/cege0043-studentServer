@@ -165,7 +165,7 @@ console.log("the colnames "+thecolnames);
 // note that query needs to be a single string with no line breaks so built it up bit by bit
 var querystring = " SELECT 'FeatureCollection' As type,array_to_json(array_agg(f)) As features FROM ";
 querystring = querystring + "(SELECT 'Feature' As type ,ST_AsGeoJSON(lg." + req.params.geomcolumn+")::json As geometry, ";
-querystring = querystring + "row_to_json((SELECT l FROM (SELECT"+colnames + ") As l )) As properties";
+querystring = querystring + "row_to_json((SELECT l FROM (SELECT "+colnames + ") As l )) As properties";
 // depending on whether we have a port number, do differen things
 if (req.params.portNumber) {
 querystring = querystring + " FROM " + req.params.tablename + "As lg where lg.port_id = '" + req.params.portNumber + "' limit 100 ) As f ";
