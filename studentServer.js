@@ -131,6 +131,7 @@ app.get('/',function(req,res){
 	res.send('hello world!');
 });
 
+//get a certain column from a certain table
 app.get('/getGeoJSON/:tablename/:geomcolumn/:portNumber?', function (req,res) {
 pool.connect(function(err,client,done) {
 if(err){
