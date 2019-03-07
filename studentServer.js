@@ -184,6 +184,8 @@ res.status(400).send(err);
 res.status(200).send(result.rows);
 });
 });
+});
+});
 
 // serve static files - e.g. html, css
 // this should always be the last line in the server file
